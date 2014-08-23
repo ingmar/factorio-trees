@@ -152,7 +152,7 @@ load_translations(LANGUAGE_FILES)
 
 -- Graphviz output
 print('strict digraph factorio {')
--- Change rankdir to RL or BT or omit entirely to change direction of graph
+-- Change rankdir to LR or TB to change direction of graph
 print('layout=dot; splines=polyline; rankdir=LR; color="#ffffff"; bgcolor="#332200"; ratio=auto; ranksep=2.0; nodesep=0.15;')
 -- Node default attributes
 node_default = {}
@@ -255,6 +255,7 @@ for id, recipe in pairs(data) do
         
             -- Recipe -> Result edge
             attr = {}
+            attr.weight = 100  -- Shorten result edges so results are close to recipe/factory
             attr.label = string.format('x%d', res.amount or 1)
             if res.type == "fluid" then
                 attr.color = '"#9999ff"'
