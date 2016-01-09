@@ -16,14 +16,14 @@ TECH_FILES = {
     "shotgun-shell-upgrades.lua",
     "technology.lua",
 }
--- Where to find string translations
-LANGUAGE_FILES = {
-    "technology-names.cfg",
+-- Which string translation sections to use (now always in base.cfg)
+LANGUAGE_SECTIONS = {
+    ["technology-name"] = true,
 }
 
 
 load_data(TECH_FILES, "data/base/prototypes/technology/")
-load_translations(LANGUAGE_FILES)
+load_translations(LANGUAGE_SECTIONS)
 
 
 -- Graphviz output

@@ -63,20 +63,32 @@ function load_data(files, rel_path)
 end
 
 -- Load string translations
-function load_translations(language_files)
+function load_translations(language_sections)
+    language_files = {
+        "base.cfg",
+    }
     for _, filename in ipairs(language_files) do
         path = FACTORIO_ROOT.."data/base/locale/"..LANGUAGE.."/"..filename
         local f = io.open(path, "r")
+        local section
         while true do
             local line = f:read("*line")
             if line == nil then break end
             line = trim(line)
-            if line == "" then break end
-            if line:sub(1, 1) ~= "[" then
-                local eq_pos = line:find("=")
-                local lookup = line:sub(1, eq_pos-1)
-                local translation = line:sub(eq_pos+1, -1)
-                translations[lookup] = translation
+            if line ~= "" then
+                if line:sub(1, 1) == "[" then
+                    section = line:sub(2, -2)
+                    -- io.stderr:write("[", section, "]\n")
+                else
+                    -- io.stderr:write("-- ", line, "\n")
+                    if language_sections[section] then
+                        local eq_pos = line:find("=")
+                        local lookup = line:sub(1, eq_pos-1)
+                        local translation = line:sub(eq_pos+1, -1)
+                        translations[lookup] = translation
+                        -- io.stderr:write(lookup, "=", translation, "\n")
+                    end
+                end
             end
         end
         f:close()

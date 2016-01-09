@@ -18,13 +18,12 @@ RECIPE_FILES = {
     "recipe.lua",
     "turret.lua",
 }
--- Where to find string translations
-LANGUAGE_FILES = {
-    "entity-names.cfg",
-    "equipment-names.cfg",
-    "fluids.cfg",
-    "item-names.cfg",
-    "recipe-names.cfg",
+-- Which string translation sections to use (now always in base.cfg)
+LANGUAGE_SECTIONS = {
+    ["item-name"] = true,
+    ["entity-name"] = true,
+    ["fluid-name"] = true,
+    ["equipment-name"] = true,
 }
 -- Recipes to exclude from graph
 RECIPE_EXCLUDE = {
@@ -147,7 +146,7 @@ CATEGORY_LABEL = {
 
 
 load_data(RECIPE_FILES, "data/base/prototypes/recipe/")
-load_translations(LANGUAGE_FILES)
+load_translations(LANGUAGE_SECTIONS)
 
 
 -- Graphviz output
