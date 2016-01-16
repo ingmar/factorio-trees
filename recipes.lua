@@ -194,9 +194,10 @@ for id, recipe in pairs(data) do
     
         -- Define the recipe node first
         attr = {}
-        --attr.label = HtmlLabel(recipe.name)
-        attr.label = HtmlLabel(CATEGORY_LABEL[recipe.category or 'default'])
-        attr.tooltip = string.format('"%s\nenergy_required: %s"', recipe.name, recipe.energy_required or "nil") -- Put the untranslated name into the tooltip
+        -- If energy_required isn't specified, it defaults to 0.5
+        if recipe.energy_required == nil then recipe.energy_required = 0.5 end
+        attr.label = HtmlLabel(CATEGORY_LABEL[recipe.category or 'default'], nil, recipe.energy_required)
+        attr.tooltip = string.format('"%s"', recipe.name) -- Put the untranslated name into the tooltip
         attr.fillcolor = '"#6d7235"'
         attr.color = attr.fillcolor
         attr.shape = "cds"

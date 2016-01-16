@@ -114,12 +114,12 @@ function HtmlLabel(name, img, energy)
     local img_tag = ""
     local energy_tag = ""
     if img ~= nil then img_tag = string.format([[<IMG SRC="%s" />]], img) end
-    -- I don't actually know what energy_required means - apparently not time?
-    -- if energy ~= nil then energy_tag = string.format([[<TR><TD><IMG SRC="%s" /></TD><TD>%d</TD></TR>]], clock_icon, energy) end
+    -- energy_required seems to refer to the time it needs (clock icon)
+    if energy ~= nil then energy_tag = string.format([[<TD><IMG SRC="%s" /></TD><TD>%g</TD>]], clock_icon, energy) end
     return trim(string.format([[
     <
     <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
-        <TR><TD>%s</TD><TD>%s</TD></TR>%s
+        <TR><TD>%s</TD><TD>%s</TD>%s</TR>        
     </TABLE>
     >
     ]], img_tag, name or "nil", energy_tag))
