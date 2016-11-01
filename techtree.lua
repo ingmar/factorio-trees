@@ -4,16 +4,7 @@ require "utils"
 
 -- Recipes to load
 TECH_FILES = {
-    "bullet-upgrades.lua",
-    "chemistry.lua",
-    "combat-robots.lua",
-    "equipment.lua",
-    "gun-turret-upgrades.lua",
-    "laser-turret-upgrades.lua",
-    "logistic-robot.lua",
-    "module.lua",
-    "rocket-upgrades.lua",
-    "shotgun-shell-upgrades.lua",
+    "inserter.lua",
     "technology.lua",
 }
 -- Which string translation sections to use (now always in base.cfg)

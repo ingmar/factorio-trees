@@ -40,8 +40,7 @@ RECIPE_EXCLUDE = {
     ["power-armor"] = true,
     ["basic-modular-armor"] = true,
 
-    -- Probably not interesting either
-    ["burner-inserter"] = true,
+    -- Outdated tech
     ["burner-mining-drill"] = true,
     ["pistol"] = true,
     ["steel-furnace"] = true,
@@ -96,7 +95,7 @@ RECIPE_EXCLUDE = {
     ["electric-furnace"] = true,
     ["fast-transport-belt-to-ground"] = true,
     ["roboport"] = true,
-    -- ["substation"] = true,
+    --["substation"] = true,
     ["basic-beacon"] = true,
     ["energy-shield-equipment"] = true,
     ["deconstruction-planner"] = true,
@@ -121,6 +120,13 @@ RECIPE_EXCLUDE = {
     ["basic-electric-discharge-defense-equipment"] = true,
     ["power-armor-mk2"] = true,
     ["rocket-defense"] = true,
+    ["arithmetic-combinator"] = true,
+    ["decider-combinator"] = true,
+    ["constant-combinator"] = true,
+    ["arithmetic-combinator"] = true,
+    ["arithmetic-combinator"] = true,
+    ["arithmetic-combinator"] = true,
+    ["arithmetic-combinator"] = true,
 }
 
 -- Ingredients that are basic resources
