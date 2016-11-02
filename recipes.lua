@@ -170,7 +170,7 @@ print(string.format('node [%s]', VizAttr(node_default)))
 -- Edge default attributes
 edge_default = {}
 edge_default.penwidth = 2
-edge_default.color = '"#808080"'
+edge_default.color = '"#DDDD22"'
 edge_default.fontname = node_default.fontname
 edge_default.fontcolor = node_default.fontcolor
 print(string.format('edge [%s]', VizAttr(edge_default)))
@@ -234,7 +234,13 @@ for id, recipe in pairs(data) do
             attr = {}
             attr.label = string.format('"x%d"', ing.amount)
             if ing.type == "fluid" then
-                attr.color = '"#9999ff"'
+                attr.color = '"#45A7F3"'
+            elseif ing.name == "copper-plate" then
+                attr.color = '"#C77362"'
+            elseif ing.name == "iron-plate" then
+                attr.color = '"#838588"'
+            elseif ing.name == "steel-plate" then
+                attr.color = '"#96ff8B"'
             else
                 attr.color = edge_default.color
             end
