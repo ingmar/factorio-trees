@@ -193,6 +193,13 @@ for id, recipe in pairs(data) do
     end
     
     if not FILTER or (FILTER and not RECIPE_EXCLUDE[recipe.name]) then
+        -- Some recipes have multiple sets of ingredients based on difficulty level.
+        if recipe.ingredients == nil then
+          -- Assume "normal"" difficulty instead of "expensive"
+          recipe.ingredients = recipe.normal.ingredients
+          recipe.result = recipe.normal.result
+        end
+      
         -- Recipe has .result data, convert to new .results format for easier handling
         if recipe.result ~= nil then    
             recipe.results = {{name = recipe.result, amount = recipe.result_count}}
